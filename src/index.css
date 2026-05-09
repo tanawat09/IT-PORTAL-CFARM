@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 38% 97%;
+    --foreground: 222 30% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 30% 16%;
+    --primary: 24 95% 55%;
+    --primary-glow: rgba(249, 115, 22, 0.14);
+    --secondary: 40 33% 95%;
+    --muted: 35 24% 94%;
+    --muted-foreground: 220 12% 43%;
+    --accent: 160 55% 38%;
+    --border: 34 23% 88%;
+    --radius: 1.5rem;
+  }
+
+  body {
+    @apply overflow-x-hidden antialiased text-slate-800 transition-colors duration-500;
+    font-family: 'Inter', sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(249, 115, 22, 0.14), transparent 30%),
+      radial-gradient(circle at top right, rgba(13, 148, 136, 0.10), transparent 28%),
+      linear-gradient(180deg, #fffdf6 0%, #f8f3e8 52%, #f7f7f5 100%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+@layer components {
+  .bg-grid-pattern {
+    background-size: 72px 72px;
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  }
+
+  .glass-effect {
+    @apply border border-white/80 bg-white/70 backdrop-blur-3xl shadow-[0_25px_60px_-18px_rgba(15,23,42,0.16)];
+  }
+
+  .ambient-panel {
+    @apply border border-white/80 bg-white/70 backdrop-blur-2xl shadow-[0_18px_60px_-24px_rgba(15,23,42,0.22)];
+  }
+
+  .premium-shadow {
+    box-shadow:
+      0 10px 20px -12px rgba(15, 23, 42, 0.12),
+      0 24px 40px -24px rgba(15, 23, 42, 0.20);
+  }
+
+  .hologram-effect::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 70%,
+      transparent 100%
+    );
+    background-size: 200% 200%;
+    mix-blend-mode: overlay;
+    transition: background-position 0.7s ease;
+    pointer-events: none;
+    z-index: 20;
+  }
+}
+
+.noise-bg {
+  position: fixed;
+  inset: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/p6.png');
+  opacity: 0.018;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.font-mono-tech {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a29e;
+}
