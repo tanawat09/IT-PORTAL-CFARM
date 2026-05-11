@@ -3,13 +3,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        VITE_SUPABASE_URL: https://agcqvaoyewjhpwpobsnh.supabase.co
+        VITE_SUPABASE_ANON_KEY: sb_publishable_B7YpQ8U8bSF3ca39cXq2gA_TpUsIs3w
     image: it-portal:latest
     container_name: it-portal-web
     ports:
       - "8080:8080"
     restart: always
-    # If building via compose, you might need to pass build args if your Vite app requires env vars at build time
-    # build:
-    #   args:
-    #     - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
-    #     - VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY}

@@ -9,6 +9,11 @@ COPY package*.json ./
 # Install dependencies
 RUN npm ci
 
+ARG VITE_SUPABASE_URL
+ARG VITE_SUPABASE_ANON_KEY
+ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL
+ENV VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY
+
 # Copy the rest of the application files
 COPY . .
 
