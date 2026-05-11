@@ -27,8 +27,8 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 # Copy custom nginx configuration (for React Router SPA)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 8081
-EXPOSE 8081
+# Expose port 8080
+EXPOSE 8080
 
 # Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]
